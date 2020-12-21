@@ -1,0 +1,3 @@
+@function getColumnWidth($index) {
+    @return percentage($index / $grid-column-count);
+}

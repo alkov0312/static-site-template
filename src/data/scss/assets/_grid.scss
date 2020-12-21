@@ -1,0 +1,49 @@
+.container {
+    @include commonGridParams();
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    @include commonGridParams();
+    flex-wrap: wrap;
+}
+
+.row > [class*="col-"] {
+    @include commonGridParams();
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: $grid-gap;
+    padding-right: $grid-gap;
+}
+
+@each $prefix, $width in $breakpoints {
+    @media screen and (min-width: map-get($width, screenWidth)) {
+        @for $index from 1 through $grid-column-count {
+            .col-#{$prefix}-#{$index} {
+                max-width: getColumnWidth($index);
+                flex-basis: getColumnWidth($index);
+            }
+        }
+
+        @for $index from 0 to $grid-column-count {
+            .offset-#{$prefix}-#{$index} {
+                margin-left: getColumnWidth($index);
+            }
+        }
+
+        .row {
+            max-width: map-get($width, rowWidth);
+        }
+
+        .#{$prefix}-no-gap {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .#{$prefix}-gap {
+            padding-left: $grid-gap;
+            padding-right: $grid-gap;
+        }
+    }
+}

@@ -1,0 +1,38 @@
+$dark-color: #333333;
+$accent-color: #3366dd;
+$white-color: #ffffff;
+
+$easing: 0.15s ease 0s;
+
+$radius: (
+    sm: 4px,
+    md: 8px,
+    lg: 16px,
+    xl: 24px,
+);
+
+$grid-column-count: 12;
+$grid-gap: 15px;
+
+$breakpoints: (
+    xs: (
+        screenWidth: 576px,
+        rowWidth: 100%,
+    ),
+    sm: (
+        screenWidth: 768px,
+        rowWidth: 720px,
+    ),
+    md: (
+        screenWidth: 1024px,
+        rowWidth: 960px,
+    ),
+    lg: (
+        screenWidth: 1200px,
+        rowWidth: 1140px,
+    ),
+    xl: (
+        screenWidth: 1440px,
+        rowWidth: 1380px,
+    ),
+);
